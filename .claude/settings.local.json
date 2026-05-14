@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\eliea\\\\Documents\\\\buisness\\\\web design\\\\clients webdesign\\\\fromage de chèvre\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npm run *)",
+      "Bash(Select-Object FullName)",
+      "PowerShell($basePath = \"c:\\\\Users\\\\eliea\\\\Documents\\\\buisness\\\\web design\\\\clients webdesign\\\\fromage de chèvre\"; Get-ChildItem -Path $basePath -Recurse -Exclude node_modules -Force | Where-Object { !$_.PSIsContainer } | Select-Object @{N='Path'; E={$_.FullName -replace [regex]::Escape\\($basePath\\), ''}} | Sort-Object Path)"
+    ]
+  }
+}
