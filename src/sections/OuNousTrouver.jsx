@@ -1,19 +1,19 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { MapPin, Clock, ShoppingBag, Users } from 'lucide-react'
+import { MapPin, Clock, ShoppingBag, Users, Phone } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 
 const MARKET_IMG = 'https://images.unsplash.com/photo-1706059922500-51ff9bf9611e?w=1200&q=85&auto=format&fit=crop'
 
 const points = [
   {
-    icon: MapPin,
+    Icon: MapPin,
     title: 'À la ferme',
     subtitle: '4411 Route des Hameaux\nMarthod (73400)',
     details: [
       { icon: Clock, text: 'Lun – Sam · 8h – 19h (sur RDV)' },
       { icon: Clock, text: 'Appeler avant de venir' },
-      { icon: Clock, text: '06 70 44 65 71' },
+      { icon: Phone, text: '06 70 44 65 71' },
     ],
     cta: { label: 'Appeler maintenant', href: 'tel:0670446571' },
     bg: '#2C2420',
@@ -22,16 +22,15 @@ const points = [
     badge: 'Vente directe',
     badgeBg: 'rgba(196,122,58,0.25)',
     badgeColor: '#E8A868',
-    emoji: '🏡',
   },
   {
-    icon: ShoppingBag,
+    Icon: ShoppingBag,
     title: 'Marché de Frontenex',
     subtitle: 'Frontenex, Savoie',
     details: [
       { icon: Clock, text: 'Chaque vendredi matin' },
       { icon: Clock, text: 'À partir de 8h, jusqu\'à épuisement' },
-      { icon: Clock, text: 'Retrouvez Laurence sur place' },
+      { icon: MapPin, text: 'Retrouvez Laurence sur place' },
     ],
     cta: null,
     bg: 'var(--sage)',
@@ -40,16 +39,15 @@ const points = [
     badge: 'Vendredi matin',
     badgeBg: 'rgba(255,255,255,0.18)',
     badgeColor: 'white',
-    emoji: '🛒',
   },
   {
-    icon: Users,
+    Icon: Users,
     title: 'AMAP Dent de Cons',
     subtitle: 'Association pour le Maintien\nd\'une Agriculture Paysanne',
     details: [
       { icon: Clock, text: 'Distribution hebdomadaire' },
-      { icon: Clock, text: 'Panier fromages régulier' },
-      { icon: Clock, text: 'Contactez l\'AMAP pour adhérer' },
+      { icon: ShoppingBag, text: 'Panier fromages régulier' },
+      { icon: Phone, text: 'Contactez l\'AMAP pour adhérer' },
     ],
     cta: null,
     bg: 'var(--cream-dark)',
@@ -58,14 +56,13 @@ const points = [
     badge: 'Circuit court',
     badgeBg: 'rgba(107,143,110,0.15)',
     badgeColor: 'var(--sage-dark)',
-    emoji: '🤝',
   },
 ]
 
 function PointCard({ point, index }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const Icon = point.icon
+  const Icon = point.Icon
 
   return (
     <motion.div
@@ -73,7 +70,6 @@ function PointCard({ point, index }) {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-      className="card-glow"
       style={{
         backgroundColor: point.bg, borderRadius: '24px',
         padding: 'clamp(28px,4vw,40px)', position: 'relative',
@@ -95,7 +91,14 @@ function PointCard({ point, index }) {
         {point.badge}
       </span>
 
-      <div style={{ fontSize: '40px', marginBottom: '16px' }}>{point.emoji}</div>
+      <div style={{
+        width: '48px', height: '48px', borderRadius: '14px',
+        backgroundColor: `${point.accent}22`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        marginBottom: '16px', border: `1px solid ${point.accent}30`,
+      }}>
+        <Icon size={22} style={{ color: point.textColor, opacity: 0.85 }} strokeWidth={1.5} />
+      </div>
 
       <h3 style={{
         fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px,3vw,28px)', fontWeight: 600,
@@ -158,12 +161,13 @@ export default function OuNousTrouver() {
       >
         <motion.img
           src={MARKET_IMG}
-          alt="Fromages au marché"
+          alt="Fromages au marché de Frontenex"
           initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          loading="lazy"
         />
         <div style={{
           position: 'absolute', inset: 0,
@@ -241,7 +245,8 @@ export default function OuNousTrouver() {
               onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
               onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
             >
-              📞 06 70 44 65 71
+              <Phone size={16} strokeWidth={2} />
+              06 70 44 65 71
             </a>
           </motion.div>
         </div>

@@ -61,7 +61,7 @@ function StepCard({ step, index }) {
       }}
     >
       {/* Photo */}
-      <div style={{ order: isEven ? 0 : 1 }}>
+      <div className="step-img-col" style={{ order: isEven ? 0 : 1 }}>
         <div style={{
           position: 'relative', borderRadius: '24px', overflow: 'hidden',
           aspectRatio: '4/3',
@@ -90,7 +90,7 @@ function StepCard({ step, index }) {
       </div>
 
       {/* Text */}
-      <div style={{ order: isEven ? 1 : 0 }}>
+      <div className="step-txt-col" style={{ order: isEven ? 1 : 0 }}>
         <motion.div
           initial={{ opacity: 0, x: isEven ? 30 : -30 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}

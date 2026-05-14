@@ -2,14 +2,91 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐐</text></svg>" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Fromages de chèvre artisanaux, fabriqués à la main chaque matin par Laurence Lombard. Vente à la ferme, marché de Frontenex et AMAP Dent de Cons. Marthod, Savoie." />
-    <meta name="keywords" content="fromage chèvre, artisanal, Marthod, Savoie, ferme, circuit court, AMAP, marché Frontenex" />
-    <meta property="og:title" content="Ferme Caprine de Marthod — Fromages de chèvre artisanaux" />
-    <meta property="og:description" content="Du lait à la croûte, l'amour du vrai fromage de chèvre. Vente directe en Savoie." />
+
+    <!-- ─── SEO primaire ───────────────────────────────────── -->
+    <title>Ferme Caprine de Marthod — Fromages de chèvre artisanaux, Savoie</title>
+    <meta name="description" content="Fromages de chèvre artisanaux fabriqués chaque matin par Laurence Lombard à Marthod, Savoie (73400). Vente directe à la ferme sur RDV, marché de Frontenex chaque vendredi et AMAP Dent de Cons. Aucun intermédiaire." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://fermecaprinemarthod.fr/" />
+
+    <!-- ─── Open Graph ─────────────────────────────────────── -->
     <meta property="og:type" content="website" />
-    <title>Ferme Caprine de Marthod — Fromages de chèvre artisanaux</title>
+    <meta property="og:url" content="https://fermecaprinemarthod.fr/" />
+    <meta property="og:site_name" content="Ferme Caprine de Marthod" />
+    <meta property="og:title" content="Ferme Caprine de Marthod — Fromages de chèvre artisanaux" />
+    <meta property="og:description" content="Du lait à la croûte, l'amour du vrai fromage de chèvre. Vente directe en Savoie — sans intermédiaire, depuis 1998." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1691472898747-363d6d7409de?w=1200&q=90&auto=format&fit=crop" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- ─── Twitter Card ───────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ferme Caprine de Marthod — Fromages de chèvre artisanaux" />
+    <meta name="twitter:description" content="Du lait à la croûte, l'amour du vrai fromage de chèvre. Vente directe en Savoie, depuis 1998." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1691472898747-363d6d7409de?w=1200&q=90&auto=format&fit=crop" />
+
+    <!-- ─── Fonts — preconnect first, then non-blocking load ─ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ─── JSON-LD — LocalBusiness ───────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://fermecaprinemarthod.fr/",
+      "name": "Ferme Caprine de Marthod",
+      "description": "Production artisanale de fromages de chèvre à Marthod, Savoie. Vente directe à la ferme, marché de Frontenex (vendredi matin) et AMAP Dent de Cons.",
+      "url": "https://fermecaprinemarthod.fr/",
+      "telephone": "+33670446571",
+      "priceRange": "€",
+      "image": "https://images.unsplash.com/photo-1691472898747-363d6d7409de?w=1200&q=90",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4411 Route des Hameaux",
+        "addressLocality": "Marthod",
+        "postalCode": "73400",
+        "addressRegion": "Savoie",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.6184,
+        "longitude": 6.3741
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Saturday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ],
+      "hasMap": "https://maps.google.com/?q=4411+Route+des+Hameaux,+Marthod+73400",
+      "founder": {
+        "@type": "Person",
+        "name": "Laurence Lombard"
+      },
+      "knowsAbout": ["fromage de chèvre", "élevage caprin", "fabrication artisanale", "circuit court"],
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Savoie"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

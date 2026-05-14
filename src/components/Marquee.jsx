@@ -1,16 +1,19 @@
-/* Emil: interruptible, performant — CSS animation only, no JS */
 const ITEMS = [
-  '🧀 Fromage frais',
-  '· Buchette mi-affinée ·',
-  '🌿 Aux herbes aromatiques',
-  '· Tomme affinée ·',
-  '🫙 Cendré',
-  '· Faisselle nature ·',
-  '🐐 100% Artisanal',
-  '· Circuit court ·',
-  '🏔️ Marthod, Savoie',
-  '· Fait main chaque matin ·',
+  'Fromage frais',
+  'Buchette mi-affinée',
+  'Aux herbes aromatiques',
+  'Tomme affinée',
+  'Cendré',
+  'Faisselle nature',
+  '100 % Artisanal',
+  'Circuit court',
+  'Marthod, Savoie',
+  'Fait main chaque matin',
 ]
+
+const DOT = (
+  <span style={{ margin: '0 18px', opacity: 0.45, fontSize: '6px', verticalAlign: 'middle' }}>◆</span>
+)
 
 export default function Marquee({ dark = false }) {
   const doubled = [...ITEMS, ...ITEMS]
@@ -32,18 +35,17 @@ export default function Marquee({ dark = false }) {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0',
-              padding: '0 28px',
-              fontSize: '13px',
+              fontSize: '11px',
               fontWeight: 500,
-              letterSpacing: '0.06em',
-              color: dark ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.9)',
+              letterSpacing: '0.1em',
+              color: dark ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.9)',
               whiteSpace: 'nowrap',
               fontFamily: 'DM Sans, sans-serif',
               textTransform: 'uppercase',
+              padding: '0 4px',
             }}
           >
-            {item}
+            {item}{DOT}
           </span>
         ))}
       </div>

@@ -117,6 +117,7 @@ function FromageCard({ fromage, index }) {
       <motion.div
         animate={{ scale: hovered ? 1.1 : 1, rotate: hovered ? 5 : 0 }}
         transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+        aria-hidden="true"
         style={{ fontSize: '40px', marginBottom: '14px', display: 'inline-block' }}
       >
         {fromage.emoji}
@@ -187,7 +188,7 @@ function FromageCard({ fromage, index }) {
           onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'scale(1.03)' }}
           onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1)' }}
         >
-          Commander
+          Réserver
         </a>
       </div>
     </motion.div>
@@ -201,7 +202,7 @@ export default function Fromages() {
         <SectionTitle
           tag="Nos fromages"
           title="Façonnés à la main, chaque matin"
-          subtitle="De la traite à l'affinage, chaque fromage porte en lui le soin et le temps d'une fabrication entièrement artisanale."
+          subtitle="Pas de chaîne de production. Pas d'additif. Juste du lait, du sel, et le savoir-faire de Laurence — depuis 1998."
         />
 
         {/* Hero cheese photo */}
@@ -275,7 +276,7 @@ export default function Fromages() {
           }}
         >
           <p style={{ fontSize: '14px', color: 'var(--sage-dark)', fontStyle: 'italic', fontWeight: 300 }}>
-            🌱 La gamme varie selon les saisons et la production. Appelez Laurence pour connaître les disponibilités du moment.
+            La gamme varie selon les saisons et la production. Appelez Laurence pour connaître les disponibilités du moment.
           </p>
         </motion.div>
       </div>

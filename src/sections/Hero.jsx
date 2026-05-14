@@ -258,9 +258,9 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
               fontWeight: 300, lineHeight: 1.85,
               fontFamily: 'DM Sans, sans-serif',
             }}>
-              Chaque matin à 5h30, Laurence traire ses 30&nbsp;chèvres pour vous.
-              Pas de chaîne, pas de supermarché, juste du fromage comme il
-              devrait toujours&nbsp;l'être.
+              Chaque matin à 5h30, Laurence traire ses 30&nbsp;chèvres.
+              Aucun intermédiaire. Aucune concession.
+              Du fromage comme vous n'en avez pas goûté depuis&nbsp;longtemps.
             </p>
           </motion.div>
 
@@ -269,6 +269,7 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: 'spring', stiffness: 80, damping: 18, delay: 0.9 }}
+            className="hero-cta-row"
             style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}
           >
             <MagneticButton primary onClick={() => scrollTo(fromagesRef)}>

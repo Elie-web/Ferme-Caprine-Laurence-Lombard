@@ -148,12 +148,7 @@ export default function Galerie() {
         </div>
 
         {/* Masonry-style grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gridAutoRows: '200px',
-          gap: '12px',
-        }}>
+        <div className="gallery-grid">
           {/* Big feature photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
@@ -161,8 +156,8 @@ export default function Galerie() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             onClick={() => setSelected(photos[0])}
+            className="gallery-feature"
             style={{
-              gridColumn: 'span 2', gridRow: 'span 2',
               borderRadius: '20px', overflow: 'hidden',
               cursor: 'zoom-in', position: 'relative',
               boxShadow: '0 12px 40px rgba(44,36,32,0.12)',

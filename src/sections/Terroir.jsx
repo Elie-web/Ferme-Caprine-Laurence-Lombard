@@ -1,13 +1,30 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { Leaf, RefreshCw, Clock, Heart } from 'lucide-react'
 
 const ALPINE = 'https://images.unsplash.com/photo-1753195269044-68384b0c3a33?w=1800&q=90&auto=format&fit=crop'
 
 const valeurs = [
-  { icon: '🌿', title: 'Pâturages naturels', desc: 'Dix hectares de prairies savoyardes où les chèvres broutent librement l\'herbe fraîche et les plantes aromatiques des alpages.' },
-  { icon: '🔄', title: 'Circuit ultra-court', desc: 'De la ferme à votre table sans intermédiaire. Vous connaissez la personne qui a fabriqué votre fromage, et même ses chèvres.' },
-  { icon: '⏱️', title: 'Temps respecté', desc: 'Aucune accélération artificielle. L\'affinage prend le temps qu\'il faut. La qualité ne se négocie pas avec le calendrier.' },
-  { icon: '👨‍👩‍👧', title: 'Projet familial', desc: 'Laurence, Didier et leurs enfants. Une ferme qui se transmet, qui s\'enracine, qui donne du sens à chaque fromage produit.' },
+  {
+    Icon: Leaf,
+    title: 'Pâturages naturels',
+    desc: 'Dix hectares de prairies savoyardes où les chèvres broutent librement l\'herbe fraîche et les plantes aromatiques des alpages.',
+  },
+  {
+    Icon: RefreshCw,
+    title: 'Circuit ultra-court',
+    desc: 'De la ferme à votre table sans intermédiaire. Vous connaissez la personne qui a fabriqué votre fromage, et même ses chèvres.',
+  },
+  {
+    Icon: Clock,
+    title: 'Temps respecté',
+    desc: 'Aucune accélération artificielle. L\'affinage prend le temps qu\'il faut. La qualité ne se négocie pas avec le calendrier.',
+  },
+  {
+    Icon: Heart,
+    title: 'Projet familial',
+    desc: 'Laurence, Didier et leurs enfants. Une ferme qui se transmet, qui s\'enracine, qui donne du sens à chaque fromage produit.',
+  },
 ]
 
 export default function Terroir() {
@@ -28,7 +45,6 @@ export default function Terroir() {
             y: imgY,
           }}
         />
-        {/* Multi-layer overlay */}
         <div style={{
           position: 'absolute', inset: 0,
           background: 'linear-gradient(to bottom, rgba(20,14,10,0.25) 0%, rgba(20,14,10,0.65) 100%)',
@@ -95,7 +111,6 @@ export default function Terroir() {
           </motion.p>
         </div>
 
-        {/* Photo credit */}
         <div style={{
           position: 'absolute', bottom: '16px', right: '20px',
           fontSize: '10px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em',
@@ -104,7 +119,7 @@ export default function Terroir() {
         </div>
       </div>
 
-      {/* Values grid below */}
+      {/* Values grid */}
       <div style={{
         backgroundColor: 'var(--charcoal)', padding: 'clamp(64px,8vw,100px) clamp(24px,6vw,80px)',
       }}>
@@ -114,37 +129,47 @@ export default function Terroir() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
           gap: 'clamp(24px,3vw,40px)',
         }}>
-          {valeurs.map((v, i) => (
-            <motion.div
-              key={v.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                padding: '28px',
-                backgroundColor: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '20px',
-                transition: 'background-color 0.3s ease, border-color 0.3s ease',
-              }}
-              whileHover={{
-                backgroundColor: 'rgba(255,255,255,0.07)',
-                borderColor: 'rgba(196,122,58,0.25)',
-              }}
-            >
-              <span style={{ fontSize: '32px', display: 'block', marginBottom: '16px' }}>{v.icon}</span>
-              <h3 style={{
-                fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: 600,
-                color: 'white', marginBottom: '10px',
-              }}>
-                {v.title}
-              </h3>
-              <p style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}>
-                {v.desc}
-              </p>
-            </motion.div>
-          ))}
+          {valeurs.map((v, i) => {
+            const Icon = v.Icon
+            return (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  padding: '28px',
+                  backgroundColor: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: '20px',
+                  transition: 'background-color 0.3s ease, border-color 0.3s ease',
+                }}
+                whileHover={{
+                  backgroundColor: 'rgba(255,255,255,0.07)',
+                  borderColor: 'rgba(196,122,58,0.25)',
+                }}
+              >
+                <div style={{
+                  width: '44px', height: '44px', borderRadius: '12px',
+                  backgroundColor: 'rgba(196,122,58,0.15)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '20px',
+                }}>
+                  <Icon size={20} color="var(--amber)" strokeWidth={1.6} />
+                </div>
+                <h3 style={{
+                  fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: 600,
+                  color: 'white', marginBottom: '10px',
+                }}>
+                  {v.title}
+                </h3>
+                <p style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}>
+                  {v.desc}
+                </p>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

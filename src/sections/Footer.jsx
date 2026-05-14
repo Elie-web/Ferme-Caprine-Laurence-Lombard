@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Phone, MapPin, Heart } from 'lucide-react'
+import { Phone, MapPin, Heart, Mountain } from 'lucide-react'
 
 export default function Footer({ navItems, scrollTo }) {
   return (
@@ -28,9 +28,10 @@ export default function Footer({ navItems, scrollTo }) {
               marginBottom: '12px',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '10px',
             }}>
-              <span>🐐</span> La Ferme de Marthod
+              <Mountain size={18} color="var(--sage-light)" strokeWidth={1.6} />
+              La Ferme de Marthod
             </div>
             <p style={{
               fontSize: '14px',
@@ -78,7 +79,6 @@ export default function Footer({ navItems, scrollTo }) {
                 <button
                   key={item.label}
                   onClick={() => scrollTo(item.ref)}
-                  className="text-underline-reveal"
                   style={{
                     background: 'none', border: 'none', cursor: 'pointer',
                     color: 'rgba(255,255,255,0.6)', fontSize: '14px',
@@ -177,7 +177,7 @@ export default function Footer({ navItems, scrollTo }) {
           gap: '12px',
         }}>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)', fontWeight: 300 }}>
-            © 2025 Ferme caprine de Marthod · Laurence Lombard
+            © {new Date().getFullYear()} Ferme caprine de Marthod · Laurence Lombard
           </p>
           <p style={{
             fontSize: '13px',
@@ -187,9 +187,50 @@ export default function Footer({ navItems, scrollTo }) {
             gap: '6px',
             fontWeight: 300,
           }}>
-            Fait avec <Heart size={12} style={{ color: 'var(--amber)', opacity: 0.7 }} /> en Savoie
+            Fait avec <Heart size={12} style={{ color: 'var(--amber)', opacity: 0.7 }} aria-hidden="true" /> en Savoie
           </p>
         </div>
+      </div>
+
+      {/* Signature développeur */}
+      <div style={{
+        borderTop: '1px solid rgba(255,255,255,0.04)',
+        marginTop: '24px',
+        paddingTop: '16px',
+        textAlign: 'center',
+      }}>
+        <p style={{
+          fontSize: '11px',
+          color: 'rgba(255,255,255,0.18)',
+          fontFamily: 'DM Sans, sans-serif',
+          fontWeight: 300,
+          letterSpacing: '0.04em',
+        }}>
+          Site réalisé par{' '}
+          <a
+            href="https://elieageron.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'rgba(255,255,255,0.35)',
+              textDecoration: 'none',
+              fontWeight: 400,
+              borderBottom: '1px solid rgba(255,255,255,0.15)',
+              paddingBottom: '1px',
+              transition: 'color 0.2s ease, border-color 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = 'rgba(255,255,255,0.65)'
+              e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.4)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = 'rgba(255,255,255,0.35)'
+              e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.15)'
+            }}
+          >
+            Elie Ageron
+          </a>
+        </p>
       </div>
     </footer>
   )

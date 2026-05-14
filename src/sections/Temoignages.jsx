@@ -236,19 +236,22 @@ export default function Temoignages() {
             </button>
 
             {/* Dots */}
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               {avis.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  style={{
-                    width: i === current ? '24px' : '8px',
-                    height: '8px', borderRadius: '100px',
-                    backgroundColor: i === current ? 'var(--amber)' : 'rgba(44,36,32,0.18)',
-                    border: 'none', cursor: 'pointer', padding: 0,
-                    transition: 'all 0.3s ease',
-                  }}
-                />
+                  className="temoignage-dot"
+                  aria-label={`Témoignage ${i + 1}`}
+                >
+                  <span
+                    className="dot-inner"
+                    style={{
+                      width: i === current ? '24px' : '8px',
+                      backgroundColor: i === current ? 'var(--amber)' : 'rgba(44,36,32,0.18)',
+                    }}
+                  />
+                </button>
               ))}
             </div>
 

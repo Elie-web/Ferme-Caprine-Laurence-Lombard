@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { MapPin, Phone, Navigation } from 'lucide-react'
+import { MapPin, Phone, Navigation, Info } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 
 export default function Acces() {
@@ -169,7 +169,11 @@ export default function Acces() {
               backgroundColor: 'rgba(107,143,110,0.12)',
               border: '1px solid rgba(107,143,110,0.2)',
               borderRadius: '16px',
+              display: 'flex',
+              gap: '12px',
+              alignItems: 'flex-start',
             }}>
+              <Info size={16} color="rgba(143,175,146,0.8)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <p style={{
                 fontSize: '14px',
                 color: 'rgba(255,255,255,0.7)',
@@ -177,8 +181,9 @@ export default function Acces() {
                 fontWeight: 300,
                 lineHeight: 1.6,
               }}>
-                💡 <strong style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Conseil :</strong> appelez la veille pour confirmer
-                votre passage et être sûr de trouver Laurence disponible. La vie de ferme réserve parfois des surprises !
+                <strong style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Conseil :</strong>{' '}
+                Appelez la veille pour confirmer votre passage et être sûr de trouver Laurence disponible.
+                La vie de ferme réserve parfois des surprises !
               </p>
             </div>
           </motion.div>

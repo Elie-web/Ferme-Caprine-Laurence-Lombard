@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { Plus } from 'lucide-react'
+import { Plus, Phone, Mountain } from 'lucide-react'
 
 const faqs = [
   {
@@ -37,7 +37,6 @@ const faqs = [
   },
 ]
 
-/* Emil: spring accordion, interruptible */
 function AccordionItem({ faq, index, isOpen, onToggle }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
@@ -52,13 +51,11 @@ function AccordionItem({ faq, index, isOpen, onToggle }) {
         borderRadius: 'var(--r-lg)',
         overflow: 'hidden',
         backgroundColor: isOpen ? 'var(--warm-white)' : 'var(--cream-dark)',
-        /* Emil: shadow over border */
         boxShadow: isOpen ? 'var(--shadow-lg)' : 'var(--shadow-sm)',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
         marginBottom: '10px',
       }}
     >
-      {/* Trigger — Emil: 40px min hit area */}
       <button
         onClick={onToggle}
         className="hit-area"
@@ -80,7 +77,6 @@ function AccordionItem({ faq, index, isOpen, onToggle }) {
           {faq.q}
         </span>
 
-        {/* Emil: spring rotate icon */}
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ type: 'spring', stiffness: 400, damping: 28 }}
@@ -98,7 +94,6 @@ function AccordionItem({ faq, index, isOpen, onToggle }) {
         </motion.div>
       </button>
 
-      {/* Answer — AnimatePresence for proper enter/exit */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -106,7 +101,7 @@ function AccordionItem({ faq, index, isOpen, onToggle }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 220, damping: 30 }} /* Emil spring */
+            transition={{ type: 'spring', stiffness: 220, damping: 30 }}
             style={{ overflow: 'hidden' }}
           >
             <p style={{
@@ -144,6 +139,7 @@ export default function FAQ() {
             initial={{ opacity: 0, x: -24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ type: 'spring', stiffness: 80, damping: 18 }}
+            className="faq-sticky-header"
             style={{ position: 'sticky', top: '100px' }}
           >
             <span style={{
@@ -180,30 +176,31 @@ export default function FAQ() {
                 backgroundColor: 'var(--charcoal)', color: 'white',
                 fontSize: '14px', fontWeight: 500, textDecoration: 'none',
                 fontFamily: 'DM Sans, sans-serif',
-                /* Emil: shadow > border */
                 boxShadow: 'var(--shadow-md)',
                 transition: 'transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease',
               }}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-lg)'; e.currentTarget.style.transform = 'scale(1.02)' }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'scale(1)' }}
             >
-              📞 Poser une question
+              <Phone size={14} strokeWidth={1.8} />
+              Poser une question
             </a>
 
             {/* Decorative element */}
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+              aria-hidden="true"
+              className="faq-decorative"
               style={{
                 marginTop: '48px',
                 width: '80px', height: '80px',
                 borderRadius: '50%',
                 border: '1.5px dashed rgba(107,143,110,0.3)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '32px',
               }}
             >
-              🐐
+              <Mountain size={28} color="rgba(107,143,110,0.3)" strokeWidth={1.2} />
             </motion.div>
           </motion.div>
 
