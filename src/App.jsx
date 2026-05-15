@@ -38,6 +38,7 @@ export default function App() {
     <div style={{ backgroundColor: 'var(--cream)' }}>
       <Nav navItems={navItems} scrollTo={scrollTo} />
       <MobileActionBar />
+      <main>
 
       {/* 1 — Hero */}
       <Hero scrollTo={scrollTo} histoireRef={histoireRef} fromagesRef={fromagesRef} venteRef={venteRef} />
@@ -87,6 +88,7 @@ export default function App() {
         <Acces />
       </div>
 
+      </main>
       {/* Footer */}
       <Footer navItems={navItems} scrollTo={scrollTo} />
     </div>

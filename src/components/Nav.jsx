@@ -223,7 +223,7 @@ export default function Nav({ navItems, scrollTo }) {
             exit={{ opacity: 0, clipPath: 'circle(0% at calc(100% - 44px) 28px)' }}
             transition={{ type: 'spring', stiffness: 55, damping: 17 }}
             style={{
-              position: 'fixed', inset: 0, zIndex: 101,
+              position: 'fixed', inset: 0, zIndex: 10000,
               backgroundColor: 'var(--cream)',
               display: 'flex', flexDirection: 'column',
             }}

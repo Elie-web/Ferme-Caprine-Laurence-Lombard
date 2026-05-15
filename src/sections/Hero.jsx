@@ -111,6 +111,8 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
     >
       {/* Parallax image — extended top/bottom to prevent edge bleeding */}
       <motion.div
+        role="img"
+        aria-label="Paysage de montagne savoyarde au lever du soleil, Marthod, Savoie"
         style={{
           position: 'absolute',
           top: '-12%', bottom: '-12%', left: 0, right: 0,
@@ -208,7 +210,7 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
           </motion.div>
 
           {/* Headline — 3-line mask reveal */}
-          <div style={{ marginBottom: '28px' }}>
+          <h1 style={{ marginBottom: '28px', margin: 0, marginBottom: '28px', fontWeight: 'inherit', fontSize: 'inherit', lineHeight: 'inherit', padding: 0 }}>
             {HEADLINE_LINES.map((line, i) => (
               <div key={i} style={{ overflow: 'hidden' }}>
                 <motion.span
@@ -235,7 +237,7 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
                 </motion.span>
               </div>
             ))}
-          </div>
+          </h1>
 
           {/* Amber rule + subheadline */}
           <motion.div
@@ -306,6 +308,7 @@ export default function Hero({ scrollTo, histoireRef, fromagesRef }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.7 }}
         onClick={() => scrollTo(histoireRef)}
+        aria-label="Défiler vers la section suivante"
         style={{
           position: 'absolute',
           bottom: 'clamp(88px, 11vh, 118px)',

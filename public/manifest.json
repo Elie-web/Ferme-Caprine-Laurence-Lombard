@@ -1,0 +1,13 @@
+{
+  "name": "Ferme Caprine de Marthod",
+  "short_name": "Marthod",
+  "description": "Fromages de chèvre artisanaux, vente directe en Savoie",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#6b8f6e",
+  "background_color": "#f7f2e8",
+  "lang": "fr",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -221,6 +221,7 @@ export default function Temoignages() {
           }}>
             <button
               onClick={prev}
+              aria-label="Témoignage précédent"
               style={{
                 width: '44px', height: '44px', borderRadius: '50%',
                 backgroundColor: 'transparent',
@@ -257,6 +258,7 @@ export default function Temoignages() {
 
             <button
               onClick={next}
+              aria-label="Témoignage suivant"
               style={{
                 width: '44px', height: '44px', borderRadius: '50%',
                 backgroundColor: 'transparent',
